@@ -171,7 +171,16 @@ for (let i = 0; i < current_matrix.length; i++) { //вывод поля
    console.log(...current_matrix[i]);
 }
 
-setTimeout(function run() {
-  new_condition(); //меняем состояние нашей функции каждую секунду (1000)
-  setTimeout(run, 1000);
+setTimeout(function run() { 
+  new_condition(); //меняем состояние нашей функции каждую секунду (1000) 
+  let flag = true; 
+  for (let i = 0; i < r; i++) { 
+    for (let j = 0; j < c; j++) { 
+      if (copy_matrix[i][j] != current_matrix[i][j]) { 
+        flag = false; 
+      } 
+    } 
+  } 
+  if (flag) return; 
+  setTimeout(run, 1000); 
 }, 1000);
